@@ -1,4 +1,4 @@
-# Natacha
+# 🕷 Natacha
 
 Spy generator
 
