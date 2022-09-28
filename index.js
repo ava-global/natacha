@@ -16,6 +16,10 @@ const getProperties = (source) => {
   const varPattern = /var [a-zA-Z0-9]+:\s?[\[\]a-zA-Z0-9]+\??/g;
   const matched = source.match(varPattern);
 
+  if (!matched) {
+    return [];
+  }
+
   return matched
     .map((match) => {
       const matches = match.match(
@@ -37,6 +41,10 @@ const getFunctions = (source) => {
   const fnPattern =
     /func ([a-zA-Z0-9]+)(\(.+\)?) ?(async)? ?(throws)? ?(->)? ?([A-Za-z0-9\[\]]+)?/gm;
   const matched = source.match(fnPattern);
+
+  if (!matched) {
+    return [];
+  }
 
   return matched
     .map((match) => {
