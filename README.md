@@ -19,7 +19,7 @@ npm i pnpm -g
 ```bash
 pnpm i
 ```
-2. put protocol code into `output/sample.swift`
+2. put protocol code into `input/sample.swift`
 3. run this command:
 ```bash
 node index.js
