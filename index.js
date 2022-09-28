@@ -38,9 +38,11 @@ const getProperties = (source) => {
 };
 
 const getFunctions = (source) => {
+  const updateSource = source.replace(/,\n\s+/g, ", ");
+
   const fnPattern =
-    /func ([a-zA-Z0-9]+)(\(.+\)?) ?(async)? ?(throws)? ?(->)? ?([A-Za-z0-9\[\]]+)?/gm;
-  const matched = source.match(fnPattern);
+    /func ([a-zA-Z0-9]+)(\(.+\)?) ?(async)? ?(throws)? ?(->)? ?([A-Za-z0-9\[\]]+)?/g;
+  const matched = updateSource.match(fnPattern);
 
   if (!matched) {
     return [];
@@ -49,7 +51,7 @@ const getFunctions = (source) => {
   return matched
     .map((match) => {
       const matches = match.match(
-        /func ([a-zA-Z0-9]+)(\((?:[a-zA-Z0-9\s:\]\[]+)?\)?)( ?(async)? ?(throws)? ?(->)? ?)([A-Za-z0-9\[\]]+)?/
+        /func ([a-zA-Z0-9]+)(\(.+\)?)( ?(async)? ?(throws)? ?(->)? ?)([A-Za-z0-9\[\]]+)?/
       );
 
       if (!matches[1]) {
@@ -125,8 +127,6 @@ const createSpyData = (protocol) => {
 };
 
 const createSwiftSpy = (spyData) => {
-  // concat string
-
   const header = [
     "//",
     "//  WalletHelperable.swift",
