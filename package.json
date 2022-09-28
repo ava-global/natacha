@@ -1,12 +1,12 @@
 {
-  "name": "protocol-parser",
+  "name": "natacha",
   "version": "1.0.0",
-  "description": "",
+  "description": "🕷 Spy class generator for Avantis iOS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Peerasak Unsakon",
   "license": "ISC"
 }
