@@ -51,9 +51,10 @@ const getFunctions = (source) => {
   return matched
     .map((match) => {
       const matches = match.match(
-        /func ([a-zA-Z0-9]+)(\(.+\)?)( ?(async)? ?(throws)? ?(->)? ?)([A-Za-z0-9\[\]]+)?/
+        /func ([a-zA-Z0-9]+)(\((?:[a-zA-Z0-9\s:\]\[\n,]+)?\)?)( ?(async)? ?(throws)? ?(->)? ?)([A-Za-z0-9\[\]]+)?/
       );
 
+      console.log(matches);
       if (!matches[1]) {
         return null;
       }
