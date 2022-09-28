@@ -13,12 +13,14 @@ const getName = (source) => {
 };
 
 const getProperties = (source) => {
-  const varPattern = /var [a-zA-Z0-9]+:\s?[a-zA-Z0-9]+\??/g;
+  const varPattern = /var [a-zA-Z0-9]+:\s?[\[\]a-zA-Z0-9]+\??/g;
   const matched = source.match(varPattern);
 
   return matched
     .map((match) => {
-      const matches = match.match(/var ([a-zA-Z0-9]+):\s?([a-zA-Z0-9]+\??)/);
+      const matches = match.match(
+        /var ([a-zA-Z0-9]+):\s?([\[\]a-zA-Z0-9]+\??)/
+      );
       if (!matches[1] && !matches[2]) {
         return null;
       }
