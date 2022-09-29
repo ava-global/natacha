@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 
 const getName = (source) => {
-  const namePattern = /protocol ([A-Za-z0-9]+) {/;
+  const namePattern = /protocol ([A-Za-z0-9]+)(: (?:[A-Za-z0-9]+))? {/;
   const matched = source.match(namePattern);
   const protocolName = matched[1];
 
